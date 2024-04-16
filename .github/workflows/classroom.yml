@@ -14,18 +14,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Test de formatos
-      id: test-de-formatos
-      uses: education/autograding-python-grader@v1
-      with:
-        timeout: 10
-        max-score: 1
-        setup-command: pip install pytest
-    - name: Custom test de formatos
-      id: custom-test-de-formatos
+    - name: Formato de Retorno
+      id: formato-de-retorno
       uses: education/autograding-command-grader@v1
       with:
-        test-name: Custom test de formatos
+        test-name: Formato de Retorno
         setup-command: pip install -r requirements.txt && pip install pytest
         command: pytest -W ignore::DeprecationWarning
         timeout: 10
@@ -33,7 +26,6 @@ jobs:
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
-        TEST-DE-FORMATOS_RESULTS: "${{steps.test-de-formatos.outputs.result}}"
-        CUSTOM-TEST-DE-FORMATOS_RESULTS: "${{steps.custom-test-de-formatos.outputs.result}}"
+        FORMATO-DE-RETORNO_RESULTS: "${{steps.formato-de-retorno.outputs.result}}"
       with:
-        runners: test-de-formatos,custom-test-de-formatos
+        runners: formato-de-retorno
