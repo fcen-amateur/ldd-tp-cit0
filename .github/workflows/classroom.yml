@@ -21,9 +21,19 @@ jobs:
         timeout: 10
         max-score: 1
         setup-command: pip install pytest
+    - name: Custom test de formatos
+      id: custom-test-de-formatos
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Custom test de formatos
+        setup-command: pip install -r requirements.txt && pip install pytest
+        command: pytest -W ignore::DeprecationWarning
+        timeout: 10
+        max-score: 1
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
         TEST-DE-FORMATOS_RESULTS: "${{steps.test-de-formatos.outputs.result}}"
+        CUSTOM-TEST-DE-FORMATOS_RESULTS: "${{steps.custom-test-de-formatos.outputs.result}}"
       with:
-        runners: test-de-formatos
+        runners: test-de-formatos,custom-test-de-formatos
