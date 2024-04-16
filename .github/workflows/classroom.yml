@@ -20,7 +20,7 @@ jobs:
       with:
         timeout: 10
         max-score: 1
-        setup-command: pip install pytest && pytest test.py
+        setup-command: pip install pytest
     - name: Autograding Reporter
       uses: education/autograding-grading-reporter@v1
       env:
