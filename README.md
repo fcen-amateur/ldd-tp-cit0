@@ -16,8 +16,8 @@ A partir del dataset `gapminder` en el paquete homónimo, y usando la interfaz `
 
 **Este gráfico y el párrafo auxiliar pueden ser hechos con su herramienta predilecta**: en un notebook de Jupyter local, en Google Colab, usan la terminal o un editor de código (VS Code, Pycharm, Spyder, et cetera), su imaginación es el límite. Ahora bien, para incorporar su aporte a la [app]((https://tpcit0.streamlit.app/)) ya mencionada, **deberá registrar su trabajo bajo control de versiones**. Hete aquí una secuencia posible de acciones para conseguirlo:
 
-1. _Forkee_ este repositorio a su cuenta personal de GitHub.
-2. Comience una rama con el mismo nombre que su usuario de dicha plataforma.
+1. Acepte el TP desde GitHub Classroom. Esto creará un _fork_ de este repositorio con Ud. como administrador.
+2. (Opcional) Comience una rama con el mismo nombre que su usuario. Si lo prefiere, trabaje directamente sobre la rama `main`.
 3. En la carpeta `plotters`, cree un nuevo archivo de Python.
 4. Copie los contenidos de la plantilla `paisesPorContinente.py` o `lifeExpOceania.py` al archivo recién creado. 
    Este archivo deberá contener una única función sin argumentos, de nombre `plot`, y que devuelva un diccionario (`dict`) con exactamente tres claves y sus respectivos valores:
