@@ -42,6 +42,6 @@ def plot():
     )
     return dict(
         descripcion="Expectativa de vida en Argentina comparado al promedio de los demas continentes a lo largo del tiempo",
-        autor="La cátedra",
+        autor="Lautaro Saver",
         figura=figura,
     )
