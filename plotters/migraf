@@ -3,23 +3,20 @@ from gapminder import gapminder
 
 
 def plot():
-    figura = (
-        so.Plot(
-            gapminder[gapminder.continent == "Oceania"],
-            x="year",
-            y="lifeExp",
-            color="country",
+    summary_by_continent_year = gapminder.groupby(['continent', 'year']).agg({'pop': 'sum', 'lifeExp': 'mean'}).reset_index()
+
+    p =(
+        so . Plot (
+        summary_by_continent_year, x = "year" , y = "lifeExp" ,
+        pointsize = "pop" , color = "continent"
         )
-        .add(so.Line())
-        .label(
-            title="Expectativa de vida en Oceanía",
-            x="Año",
-            y="Expectativa de vida",
-            color="País",
+        .add(so.Line(), legend=False)
+        . add ( so . Dot () )
         )
-    )
+    p.label(x="Año", y="Expectativa de vida en años", color="Continente",title="Expectativa de vida promedio por continente y año", pointsize ="Población")
+
     return dict(
-        descripcion="Expectativa de vida en países de Oceanía a lo largo del tiempo",
+        descripcion="Expectativa de vida por continente a lo largo del tiempo",
         autor="Fernanda Villalba",
-        figura=figura,
+        figura=p,
     )
