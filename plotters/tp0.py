@@ -19,7 +19,7 @@ def plot():
         )
     )
     return dict(
-        descripcion="Expectativa de vida en países de Oceanía a lo largo del tiempo",
-        autor="La cátedra",
+        descripcion="Expectativa de vida en países por donde pasa la Cordillera de los Andes a través de los años",
+        autor="Juan Ignacio DAngona",
         figura=figura,
     )
