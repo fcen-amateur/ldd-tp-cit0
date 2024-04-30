@@ -1,6 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import seaborn.objects as so
+from gapminder import gapminder
 
 #Funciones auxiliares 
 gm_preparado_sumado = gapminder.groupby(["continent","year"])["pop"].sum()
@@ -13,7 +14,7 @@ europePct = (aux["population"].iloc[36:48])/(aux["population"].iloc[36])
 oceaniaPct = (aux["population"].iloc[48:60])/(aux["population"].iloc[48])
 columnaDePctPop = (pd.concat([africaPct, americasPct , asiaPct , europePct , oceaniaPct], ignore_index=True)*100)-100
 aux.insert(3, "Pop%", columnaDePctPop)
-
+#Fin de funciones auxiliares
 
 def plot():
     figura = (
