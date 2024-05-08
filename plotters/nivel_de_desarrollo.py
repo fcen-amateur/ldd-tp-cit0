@@ -1,7 +1,7 @@
 import numpy as np
 import seaborn.objects as so
 from gapminder import gapminder
-from sklearn.cluster import DBSCAN, KMeans
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
 
@@ -19,18 +19,11 @@ def plot():
     )  # no olvidarse de normalizar los datos
 
     desarrollo = KMeans(n_clusters=3, random_state=0, n_init="auto").fit_predict(scaled)
-    desigualdad = DBSCAN(eps=0.2, min_samples=3).fit_predict(scaled)
 
     # nombro cada cluster
     mapeo = {0: "alto", 1: "bajo", 2: "medio"}
     paises["nivel de desarrollo"] = desarrollo
     paises["nivel de desarrollo"] = paises["nivel de desarrollo"].map(mapeo)
-
-    mapeo2 = {0: "equitativa", -1: "desigual"}
-    paises["distribucion de la riqueza"] = desigualdad
-    paises["distribucion de la riqueza"] = paises["distribucion de la riqueza"].map(
-        mapeo2
-    )
 
     figura = (
         so.Plot(data=paises, x="lifeExp", y="gdpPercap")
@@ -39,7 +32,7 @@ def plot():
         .label(x="Expectativa de vida media", y="Producto bruto interno medio")
     )
     return dict(
-        descripcion="Un sofisticado gráfico con el número de países en cada continente",
-        autor="La cátedra",
+        descripcion="Nivel de desarrollo socieconómico",
+        autor="Demián",
         figura=figura,
     )
