@@ -13,7 +13,7 @@ def plot():
 )
   
   return dict(
-    descripcion="PBI (nominal) per cápita anual promedio de Europa y África, comprendido entre años 1952 y 2007. Comparación con promedio global."
-    autor="Jean Casaubon"
+    descripcion="PBI (nominal) per cápita anual promedio de Europa y África, comprendido entre años 1952 y 2007. Comparación con promedio global.",
+    autor="Jean Casaubon",
     figura=figura
   )
