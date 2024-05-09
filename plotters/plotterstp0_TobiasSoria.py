@@ -36,7 +36,3 @@ def plot():
         autor="Tobías Soria",
         figura=figura,
     )
-
-
-plot()
-
